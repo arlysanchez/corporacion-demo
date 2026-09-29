@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /corporacion-demo/
+
+# Permitir que las carpetas sirvan su index.html automáticamente
+DirectoryIndex index.html
+
+# Si el archivo solicitado no existe como directorio, intentar cargar la versión .html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
